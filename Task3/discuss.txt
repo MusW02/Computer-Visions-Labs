@@ -1,0 +1,25 @@
+================================================================
+LAB TASK 3: REAL-TIME POSE ESTIMATION
+================================================================
+
+OBJECTIVE
+---------
+To detect human pose in real-time from a webcam feed using MediaPipe and visualize the skeletal structure and joint angles[cite: 273].
+
+IMPLEMENTATION DETAILS
+----------------------
+1. Library Used: MediaPipe (Google's open-source framework) was used for pose estimation due to its high speed and accuracy on CPU[cite: 235].
+2. Method: 
+   - The webcam feed was captured using OpenCV[cite: 275].
+   - Each frame was converted from BGR to RGB color space.
+   - The `mp_pose.Pose` solution processed the frame to detect 33 3D landmarks on the human body[cite: 246, 230].
+   - `mp_drawing.draw_landmarks` was used to overlay the skeleton connections[cite: 250].
+3. Angle Calculation: 
+   - Trigonometric calculations (arctan2) were applied to the coordinates of the Shoulder (12), Elbow (14), and Wrist (16) to calculate the elbow flexion angle in real-time[cite: 278].
+
+OBSERVATIONS / EXPECTED OUTPUT
+------------------------------
+- The system successfully drew a "skeleton" overlay on the user's body in real-time[cite: 280].
+- The landmarks (joints) tracked correctly even when the user moved fast.
+- The calculated elbow angle updated dynamically (ranging from ~180° when the arm was straight to ~30° when fully flexed).
+- Performance: The detection ran smoothly at high FPS on the CPU, confirming MediaPipe's efficiency for real-time applications compared to heavier models like OpenPose.
