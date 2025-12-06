@@ -1,0 +1,38 @@
+================================================================
+LAB TASK 2: ViT CLASSIFICATION RESULTS & ANALYSIS
+================================================================
+
+1. EXPERIMENTAL SETUP
+---------------------
+- Model Architecture: Vision Transformer (ViT-Base-16)
+- Pre-training: ImageNet-21k (via timm library)
+- Dataset: Kaggle Cats vs. Dogs
+- Optimization Strategy:
+  - Subset Size: 1000 images (randomly sampled)
+  - Train/Val Split: 80% Train / 20% Validation
+  - Batch Size: 32
+  - Optimizer: Adam (lr=1e-4)
+  - Epochs: 3
+
+2. TRAINING RESULTS
+-------------------
+The model converged rapidly due to the effective use of transfer learning.
+- Epoch 1: Loss = 0.2597 | Accuracy = 97.50%
+- Epoch 2: Loss = 0.0642 | Accuracy = 99.00%
+- Epoch 3: Loss = 0.0049 | Accuracy = 99.00%
+
+Final Validation Accuracy: 99.00%
+
+3. MODEL COMPARISON (Theoretical & Observed)
+--------------------------------------------------------------
+| Metric | RT-DETR | ViT (Our Result) | YOLO (Standard) |
+| :--- | :--- | :--- | :--- |
+| **Task** | Object Detection | Classification | Object Detection |
+| **Architecture** | Hybrid (CNN + Transformer) | Pure Transformer | CNN |
+| **Speed** | High (Real-time) | Moderate (Slower on CPU) | Very High |
+| **Accuracy** | High | Very High (99.0% on subset) | High |
+| **Strengths** | Best for complex scenes requiring high accuracy detection. | Excellent at understanding global context in single images. | Best for speed-critical edge applications. |
+
+4. CONCLUSION
+-------------
+The Vision Transformer demonstrated exceptional sample efficiency. By utilizing pre-trained weights, we achieved 99% accuracy with only 3 epochs of fine-tuning on a small CPU-friendly subset of data. This confirms that Transformers are highly effective for image classification tasks when leveraging transfer learning.

@@ -1,0 +1,14 @@
+torch
+torchvision
+timm
+transformers
+ultralytics
+opencv-python
+pillow
+numpy
+matplotlib
+pycocotools
+scikit-learn
+einops
+tqdm
+requests
