@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+*.pt
+*.pth
+*.weights
+.DS_Store
+Lab10/Task2/data/
+*.mp4
+
